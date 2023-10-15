@@ -1,0 +1,33 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "Total Fell vs Found",
+    "width": 400,
+    "height": 400,
+    "data": {
+        "values": [
+            {
+                "Fell/Found": "Fell",
+                "value": 1107
+            },
+            {
+                "Fell/Found": "Found",
+                "value": 44609
+            }
+        ]
+    },
+    "mark": {
+        "type": "arc",
+        "innerRadius": 150
+    },
+    "encoding": {
+        "theta": {
+            "field": "value",
+            "type": "quantitative"
+        },
+        "color": {
+            "field": "Fell/Found",
+            "type": "nominal"
+        },
+        "tooltip": [{"field": "Fell/Found"}, {"field": "value"}]
+    }
+}

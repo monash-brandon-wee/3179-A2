@@ -1,0 +1,152 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 800,
+  "height": 500,
+  "title": "",
+  "data": {
+    "url": "meteorite-recclass-counts.csv",
+    "format": {
+      "type": "csv"
+    }
+  },
+  "params": [
+    {
+      "name": "number_of_recclass",
+      "value": 10,
+      "bind": {
+        "input": "range",
+        "min": 2,
+        "max": 25,
+        "step": 1,
+        "name": "Number of recclass: "
+      }
+    }
+  ],
+  "transform": [
+    {
+      "filter": "datum.rank <= number_of_recclass"
+    }
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "bar",
+        "size": 10
+      },
+      "encoding": {
+        "y": {
+          "field": "recclass",
+          "type": "ordinal",
+          "title": "Recclass",
+          "sort": "-x",
+          "axis": {
+            "titlePadding": 20
+          }
+        },
+        "x": {
+          "field": "count",
+          "aggregate": "max",
+          "title": "Number of meteorites",
+          "axis": {
+            "domain": true,
+            "grid": false,
+            "ticks": true
+          }
+        },
+        "size": {
+          "value": 7
+        },
+        "color": {
+          "condition": {
+            "test": "datum.recclass === 'L6'",
+            "value": "#393b79"
+          },
+          "value": "#3182bd"
+        },
+        "tooltip": [
+          {
+            "field": "recclass",
+            "type": "nominal",
+            "title": "Recclass"
+          },
+          {
+            "field": "count",
+            "type": "quantitative",
+            "title": "Number of meteorites",
+            "format": ","
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "point",
+        "size": 100,
+        "filled": true
+      },
+      "encoding": {
+        "y": {
+          "field": "recclass",
+          "sort": "-x"
+        },
+        "x": {
+          "aggregate": "max",
+          "field": "count",
+          "axis": {
+            "domain": true,
+            "grid": false,
+            "ticks": true
+          }
+        },
+        "size": {
+          "value": 250
+        },
+        "color": {
+          "condition": {
+            "test": "datum.recclass === 'L6'",
+            "value": "#393b79"
+          },
+          "value": "#3182bd"
+        },
+        "tooltip": [
+          {
+            "field": "recclass",
+            "type": "nominal",
+            "title": "Recclass"
+          },
+          {
+            "field": "count",
+            "type": "quantitative",
+            "title": "Number of meteorites",
+            "format": ","
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "dx": 10,  
+        "dy": -10, 
+        "fontSize": 15,
+        "fill": "blue",
+        "fontStyle": "italic",
+        "text": "Despite L6 being the most frequent recclass that was found/fell on Earth, it is one of the lightest by average mass!"
+      },
+      "encoding": {
+        "x": {"value": 100},  
+        "y": {"value": 470}   
+      }
+    }
+  ],
+  "config": {
+    "axisX": {
+      "labelAngle": 0
+    },
+    "view": {
+      "stroke": "transparent"
+    }
+  }
+}

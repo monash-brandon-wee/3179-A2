@@ -1,0 +1,54 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Fell vs Found over time",
+  "data": {
+    "url": "fall-found-count.csv"
+  },
+  "layer": [
+      {
+        "mark": "line",
+        "height": 500,
+        "width": 1000,
+        "encoding": {
+          "x": {
+            "field": "year",
+            "type": "temporal"
+          },
+          "y": {
+            "field": "count",
+            "type": "quantitative",
+            "scale": {
+              "type": "sqrt"
+            }
+          },
+          "color": {
+            "field": "fall",
+            "type": "nominal"
+          },
+          "opacity": {
+            "value": 0.7
+          }
+        }
+      },
+      {
+        "mark": {
+          "type": "text",
+          "align": "left",
+          "baseline": "middle",
+          "dx": 10,  
+          "dy": -10, 
+          "fontSize": 15,
+          "fill": "blue",
+          "fontStyle": "italic",
+          "text": "The number of meteorite that were found/fell between 1970-2013 is more than 18 times the number of meteorite between 1399-1969!"
+        },
+        "encoding": {
+          "x": {"value": 30},  
+          "y": {"value": 200}
+        }
+      }
+  ]
+  
+}
+
+

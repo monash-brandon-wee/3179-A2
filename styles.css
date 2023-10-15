@@ -1,0 +1,59 @@
+p {
+  font-family: 'Jam Grotesque', sans-serif;
+  font-size: 20px;
+}
+
+strong {
+  font-family: 'Open Sans', sans-serif;
+}
+
+h3 {
+  font-family: 'Open Sans', sans-serif;
+}
+
+h2 {
+  font-size: 35px;
+  font-family: 'Garamond', serif;
+}
+
+h1 {
+  font-size: 55px;
+  font-family: 'Garamond', serif;
+  color: white;
+}
+
+body {
+  background-color: lightslategray;
+}
+
+.page {
+  width: 1200px;
+  background-color: white;
+  margin: auto;
+  padding: 50px;
+  padding-top: 20px;
+}
+
+.forehead {
+  width: 1200px;
+  background-color: #2b2727;
+  margin: auto;
+  padding: 50px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
+.foot {
+  width: 1200px;
+  background-color: #909eb1;
+  margin: auto;
+  padding: 50px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.ocean {
+  width: 1000px;
+  background-color: #87ceeb;
+  margin: auto;
+}

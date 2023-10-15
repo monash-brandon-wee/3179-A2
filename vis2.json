@@ -1,0 +1,52 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Scatter plot showing the average mass of meteorites of each year",
+  "data": {"url": "yearly-average.csv"},
+  "width": 800,
+  "height": 500,
+  "layer": [
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "dx": 10,  
+        "dy": -10, 
+        "fontSize": 15,
+        "fill": "blue",
+        "fontStyle": "italic",
+        "text": "The combined average mass of every year is smaller than the average mass of the meteorites in 1575!"
+      },
+      "encoding": {
+        "x": {"value": 100},  
+        "y": {"value": 470}   
+      }
+    },
+    {
+      "params": [
+        {
+          "name": "grid",
+          "select": "interval",
+          "bind": "scales"
+        }
+      ],
+      "mark": "circle",
+      "encoding": {
+        "x": {"field": "year", "type": "quantitative"},
+        "y": {
+          "field": "mass",
+          "type": "quantitative",
+          "scale": {"type": "log"},
+          "title": "average mass (log scale)"
+        },
+        "size": {
+          "field": "mass",
+          "type": "quantitative",
+          "scale": {"range": [20, 10000]},
+          "title": "Mass"
+        },
+        "tooltip": [{"field": "year"}, {"field": "mass"}]
+      }
+    }
+  ]
+}
